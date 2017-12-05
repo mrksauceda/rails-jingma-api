@@ -8,8 +8,8 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :category
       t.boolean :is_private
       t.integer :user_id
-      t.integer :latitude
-      t.integer :longitude
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
