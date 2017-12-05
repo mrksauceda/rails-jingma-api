@@ -43,8 +43,8 @@ class Api::V1::UsersController < Api::V1::BaseController
  end
 
  def wechat_params
-   { appid: ENV.fetch('APPID'),
-     secret: ENV.fetch('SECRET'),
+   { appid: ENV["MP_APPID"],
+     secret: ENV["MP_SECRET"],
      js_code: params[:code],
      grant_type: "authorization_code" }
  end
