@@ -1,5 +1,5 @@
 class Api::V1::BaseController < ActionController::Base
-  # include Pundit
+  include Pundit
 
   # after_action :verify_authorized, except: :index
   # after_action :verify_policy_scoped, only: :index
@@ -29,4 +29,3 @@ class Api::V1::BaseController < ActionController::Base
     render json: response, status: :internal_server_error
   end
 end
-

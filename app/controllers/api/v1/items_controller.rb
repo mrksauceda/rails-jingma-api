@@ -5,8 +5,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def index
     # curl -s http://localhost:3000/api/v1/items | jq
 
-    # @items = policy_scope(Item)
     @items = policy_scope(Item)
+    # @items = Item.all
   end
 
   def show
@@ -34,13 +34,16 @@ class Api::V1::ItemsController < Api::V1::BaseController
     # curl -i -X POST                                                              \
     #  -H 'Content-Type: application/json'                                     \
     #  -H 'X-User-Email: pitipon@gmail.com'                                      \
-    #  -H 'X-User-Token: tvpPiz4yGYq_Mb8jYat5'                                 \
+    #  -H 'X-User-Token: bDxtRPsodcrXoHAaLA62'                                 \
     #  -d '{ "item": { "price": "20", "discount": "50","description": "Jian bing dao pancake is the best","image_url": "www.abc.com/abc.jpg","category": "food", "is_private": true, "latitude": 33.3012, "longitude": 35.2541  } }' \
     #  http://localhost:3000/api/v1/items
 
+    p "------------------------------------------------------------"
 
     @item = Item.new(item_params)
+    p @item
     @item.user = current_user
+    p @item
     authorize @item
     if @item.save
       render :show, status: :created
@@ -69,7 +72,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:price, :discount, :description)
+    params.require(:item).permit(:price, :discount, :description, :image_url, :category, :is_private, :latitude, :longitude)
   end
 
   def render_error
