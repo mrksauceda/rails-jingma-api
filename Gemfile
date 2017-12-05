@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+
+
+gem "simple_token_authentication"
+gem 'pundit'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
