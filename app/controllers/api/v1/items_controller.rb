@@ -19,7 +19,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
     # curl -i -X PATCH                                        \
     #    -H 'Content-Type: application/json'              \
     #    -H 'X-User-Email: pitipon@gmail.com'               \
-    #    -H 'X-User-Token: tvpPiz4yGYq_Mb8jYat5'          \
+    #    -H 'X-User-Token: bDxtRPsodcrXoHAaLA62'          \
     #    -d '{ "item": { "price": "50", "discount": "80","description": " pancake is ok","image_url": "www.abc.com/abc.jpg","category": "food", "is_private": true, "latitude": 33.3012, "longitude": 35.2541  } }' \
     #    http://localhost:3000/api/v1/items/:id
 
