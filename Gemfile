@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.5'
 
 
-
+gem 'faker'
 gem "simple_token_authentication"
 gem 'pundit'
 gem 'devise'
