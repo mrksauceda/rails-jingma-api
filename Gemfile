@@ -7,7 +7,7 @@ gem "simple_token_authentication"
 gem 'pundit'
 gem 'devise'
 gem 'figaro'
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'

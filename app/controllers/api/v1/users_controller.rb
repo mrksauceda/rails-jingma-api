@@ -2,8 +2,6 @@ class Api::V1::UsersController < Api::V1::BaseController
  respond_to :json
  acts_as_token_authentication_handler_for User, except: [:create ]
 
- before_action :set_user, only: []
-
  after_action :verify_authorized, except: [:create]
 
 
@@ -49,12 +47,7 @@ class Api::V1::UsersController < Api::V1::BaseController
      grant_type: "authorization_code" }
  end
 
- def set_user
-   @user = User.find(params[:id])
-   authorize @user  # For Pundit
- end
-
  def set_params
-   params.require(:user).permit(:nickname, :gender, :language, :avatar, :bio, :tag_list, :latitude, :longitude, :phone)
+   params.require(:user).permit(:name, :avatar_url, :gender, :province, :city)
  end
 end
