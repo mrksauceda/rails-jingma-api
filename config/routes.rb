@@ -5,6 +5,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [ :update, :create ]
       resources :items, only: [ :index, :show, :update, :create, :destroy ]
+      resources :likes, only: [] do
+        collection do
+        post :like
+        post :unlike
+        end
+      end
     end
   end
 end
