@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, only: [ :update, :create ]
-      resources :items, only: [ :index, :show, :update, :create, :destroy ]
+      resources :items, only: [ :index, :show, :update, :create, :destroy ] do
+        resources :comments, only: [:index, :create]
+      end
       resources :likes, only: [] do
         collection do
         post :like

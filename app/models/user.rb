@@ -10,4 +10,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :items
+  has_many :comments
 end
