@@ -11,19 +11,23 @@ class Api::V1::UsersController < Api::V1::BaseController
  def create
    p "---------------------------------------------------\n\n\n\n"
    # Send code, APPID and SECRET to weixin for openid and session_key
-   @user = User.find_by_email(wechat_email) || User.create(user_params)
+
+
+   @user = User.find_by(email: wechat_email) || User.create(user_params)
 
    p "\n\n\n\n----------------------------------------------------"
    render json: @user if @user.persisted?
-
+  #  render json: @user
  end
 
  private
 
  def wechat_email
    @wechat_email ||= wechat_user.fetch('openid')  + "@salmon.com"
+   @wechat_email.downcase!
    p "wechat_email:"
    p @wechat_email
+   return @wechat_email
  end
 
  def user_params
