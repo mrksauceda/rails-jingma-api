@@ -9,10 +9,11 @@ class Api::V1::UsersController < Api::V1::BaseController
 
 
  def create
-
+   p "---------------------------------------------------\n\n\n\n"
    # Send code, APPID and SECRET to weixin for openid and session_key
    @user = User.find_by_email(wechat_email) || User.create(user_params)
 
+   p "\n\n\n\n----------------------------------------------------"
    render json: @user if @user.persisted?
 
  end
@@ -21,6 +22,8 @@ class Api::V1::UsersController < Api::V1::BaseController
 
  def wechat_email
    @wechat_email ||= wechat_user.fetch('openid')  + "@salmon.com"
+   p "wechat_email:"
+   p @wechat_email
  end
 
  def user_params
@@ -32,11 +35,24 @@ class Api::V1::UsersController < Api::V1::BaseController
    @user_params['email'] = wechat_email
    @user_params['password'] = wechat_user.fetch('session_key', Devise.friendly_token)
    @user_params['authentication_token'] = Devise.friendly_token
+
+   p "user params:"
+   p @user_params
+
    @user_params
  end
 
  def wechat_user
+   p "RestClient - Request to Wechat Server - by this params"
+   p wechat_params
+
    @wechat_response ||= RestClient.post( URL, wechat_params )
+
+   p "Response from Server"
+   p @wechat_response
+   p "Response body"
+   p @wechat_response.body
+
    @wechat_user ||= JSON.parse(@wechat_response.body)
  end
 
