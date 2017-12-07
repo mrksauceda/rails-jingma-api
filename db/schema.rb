@@ -12,6 +12,7 @@
 
 
 
+
 ActiveRecord::Schema.define(version: 20171206023651) do
 
 
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171206023651) do
     t.integer "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
   end
 
   create_table "users", force: :cascade do |t|
