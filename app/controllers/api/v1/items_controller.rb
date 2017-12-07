@@ -4,15 +4,20 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
   def index
     # curl -s http://localhost:3000/api/v1/items | jq
+    @items = policy_scope(Item).page(params[:page])
 
-    @items = policy_scope(Item)
+    # @items = policy_scope(Item)
     # @items = Item.all
   end
 
   def show
-    # curl -s http://localhost:3000/api/v1/items/:id | jq
 
+
+    # @items.find_in_batches(:include => 20) do |item|
+    #   export.add_items(items)
+    # curl -s http://localhost:3000/api/v1/items/:id | jq
     # @item
+    # end
   end
 
   def update
