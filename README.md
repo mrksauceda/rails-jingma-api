@@ -95,3 +95,15 @@ api_v1_item  GET    /api/v1/items/:id(.:format)    api/v1/items#show{:format=>:j
              PATCH  /api/v1/items/:id(.:format)    api/v1/items#update{:format=>:json}
              PUT    /api/v1/items/:id(.:format)    api/v1/items#update{:format=>:json}
              DELETE /api/v1/items/:id(.:format)   api/v1/items#destroy{:format=>:json}
+
+
+
+             curl -i -X POST                                                              \
+              -H 'Content-Type: application/json'                                     \
+              -d '{ "code": "013sKicd1B9Dnr02u2cd1qH9cd1sKicl", "user": { "name": "mo", "avatar_url": "www.salmon.com","gender": "1","province": "bangkok","city": "Thailand"} }' \
+              https://jinma.herokuapp.com/api/v1/users
+
+              curl -i -X POST                                                              \
+               -H 'Content-Type: application/json'                                     \
+               -d '{ "code": "013sKicd1B9Dnr02u2cd1qH9cd1sKicl", "user": { "name": "mo", "avatar_url": "www.salmon.com","gender": "1","province": "bangkok","city": "Thailand"} }' \
+               http://localhost:3000/api/v1/users
