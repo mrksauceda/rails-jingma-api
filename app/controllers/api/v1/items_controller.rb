@@ -25,7 +25,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
     #    -H 'Content-Type: application/json'              \
     #    -H 'X-User-Email: pitipon@gmail.com'               \
     #    -H 'X-User-Token: bDxtRPsodcrXoHAaLA62'          \
-    #    -d '{ "item": { "price": "50", "discount": "80","description": " pancake is ok","image_url": "www.abc.com/abc.jpg","category": "food", "is_private": true, "latitude": 33.3012, "longitude": 35.2541  } }' \
+    #    -d '{ "item": { "price": "50", "discount": "80","description": " pancake is ok","image_url": "www.abc.com/abc.jpg","category": "food", "is_private": true, "latitude": 33.3012, "longitude": 35.2541 , "location": "Hong qi, Chengdu, China" } }' \
     #    http://localhost:3000/api/v1/items/:id
 
     if @item.update(item_params)
@@ -39,8 +39,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
     # curl -i -X POST                                                              \
     #  -H 'Content-Type: application/json'                                     \
     #  -H 'X-User-Email: pitipon@gmail.com'                                      \
-    #  -H 'X-User-Token: bDxtRPsodcrXoHAaLA62'                                 \
-    #  -d '{ "item": { "price": "20", "discount": "50","description": "Jian bing dao pancake is the best","image_url": "www.abc.com/abc.jpg","category": "food", "is_private": true, "latitude": 33.3012, "longitude": 35.2541  } }' \
+    #  -H 'X-User-Token: GPGdVGL9VrWx9n7w9yY1'                                 \
+    #  -d '{ "item": { "price": "$20", "discount": "50%","description": "so good","image_url": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513136349&di=54e5cbd206069c5ef34e349e02887a2e&imgtype=jpg&er=1&src=http%3A%2F%2Ffarm6.staticflickr.com%2F5341%2F6912826450_14a1f3875c_z.jpg","category": "food", "is_private": false, "latitude": 33.3012, "longitude": 35.2541, "location": "Hong qi, Chengdu, China"  } }' \
     #  http://localhost:3000/api/v1/items
 
     p "------------------------------------------------------------"
