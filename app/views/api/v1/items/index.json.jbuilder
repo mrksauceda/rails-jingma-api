@@ -1,6 +1,8 @@
 json.items do
   json.array! @items do |item|
     json.extract! item, :id, :price, :discount, :description, :image_url, :category, :is_private, :latitude, :longitude, :location
+    json.extract! item, :num_likes
+
   end
 end
 
