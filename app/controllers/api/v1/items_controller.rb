@@ -77,7 +77,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   end
 
   def item_params
-    params.require(:item).permit(:price, :discount, :description, :image_url, :category, :is_private, :latitude, :longitude)
+    params.require(:item).permit(:price, :discount, :description, :image_url, :category, :is_private, :latitude, :longitude, :location)
   end
 
   def render_error

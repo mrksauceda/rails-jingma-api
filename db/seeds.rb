@@ -66,7 +66,7 @@ User.create!(
 end
 
 
-30.times do Item.create!(
+100.times do Item.create!(
   price: rand(10...3000),
   discount: percent_discount.sample,
   description: seed_description.sample,
