@@ -1,6 +1,6 @@
 json.extract! @item, :price, :discount, :description,
   :image_url, :category, :is_private,
-  :latitude, :longitude
+  :latitude, :longitude, :location
 
   ##### we can put more JSON DATA here, such as
   ##### view comment , view like , view price , view discount and etc.
