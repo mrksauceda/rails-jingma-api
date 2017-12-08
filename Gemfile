@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'strftime'
 gem 'kaminari'
 gem 'acts_as_votable'
 gem 'faker'
