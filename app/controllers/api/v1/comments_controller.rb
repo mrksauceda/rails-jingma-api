@@ -1,7 +1,7 @@
 class Api::V1::CommentsController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User
 
-  def comment_index
+  def index
     @comments = Comment.where(item_id: params[:item_id])
   end
 
