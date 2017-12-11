@@ -8,12 +8,14 @@ require "mina/scp"
 
 @root_path = '/var/www/jingma'
 
+set :term_mode, nil
+
 set :domain, 'wagon'
 set :deploy_to, @root_path
 # set :repository, 'https://github.com/kwnath/seeme.git'
 
 # set :branch, 'master'
-set :branch, 'deploy'
+set :branch, 'master'
 
 set :rsync_options, %w[
   --recursive --delete --delete-excluded
@@ -67,9 +69,9 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
-    # to :launch do
-    #   queue "sudo supervisorctl restart jingma:jingma-web-1"
-    # end
+    to :launch do
+      queue "sudo supervisorctl restart jingma:jingma-web-1"
+    end
   end
 end
 
