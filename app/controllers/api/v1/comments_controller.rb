@@ -3,7 +3,7 @@ class Api::V1::CommentsController < Api::V1::BaseController
 
   def index
     # curl -s http://localhost:3000/api/v1/items/:item_id/comments
-    @comments = Comment.where(item_id: params[:item_id])
+    @comments = Comment.where(item_id: params[:item_id]).order('created_at DESC')
   end
 
   def create
