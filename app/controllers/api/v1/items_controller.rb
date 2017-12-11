@@ -4,6 +4,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
   def index
     # curl -s http://localhost:3000/api/v1/items | jq
+    # curl -s https://jingma.shanghaiwogeng.com/api/v1/items | jq
     @items = policy_scope(Item).page(params[:page]).order('created_at DESC')
 
     # @items = policy_scope(Item)
