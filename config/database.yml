@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: FProject_production
-  username: FProject
-  password: <%= ENV['FPROJECT_DATABASE_PASSWORD'] %>
+  database: jingma_production
+  username: jingma
+  password: <%= ENV['JINGMA_DATABASE_PASSWORD'] %>
