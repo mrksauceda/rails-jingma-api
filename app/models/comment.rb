@@ -6,4 +6,8 @@ class Comment < ApplicationRecord
   def comment_likes
     get_likes.size
   end
+
+  def item_created_at
+    created_at.strftime("%A, %b %w, %Y")
+  end
 end
