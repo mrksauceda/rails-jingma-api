@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+# deployment
+gem 'mina', '< 1', require: false
+gem 'mina-rsync', require: false
+gem 'mina-scp', require: false
+
+
 gem 'strftime'
 gem 'kaminari'
 gem 'acts_as_votable'
