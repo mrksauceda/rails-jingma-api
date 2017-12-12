@@ -13,6 +13,7 @@ class Item < ApplicationRecord
     comments.size
   end
 
+
   def item_created_at
     created_at.strftime("%A, %b %w, %Y")
   end
