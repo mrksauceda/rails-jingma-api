@@ -5,10 +5,14 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def index
     # curl -s http://localhost:3000/api/v1/items | jq
     # curl -s https://jingma.shanghaiwogeng.com/api/v1/items | jq
-    @items = policy_scope(Item).page(params[:page]).order('created_at DESC')
+    @items = all_items
+  end
 
-    # @items = policy_scope(Item)
-    # @items = Item.all
+  def for_current_user
+    @items = all_items
+    @items = @items.where(user_id: current_user.id)
+
+    render :index
   end
 
   def show
@@ -84,5 +88,9 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def render_error
     render json: { errors: @item.errors.full_messages },
       status: :unprocessable_entity
+  end
+
+  def all_items
+    @items = policy_scope(Item).page(params[:page]).order('created_at DESC')
   end
 end
