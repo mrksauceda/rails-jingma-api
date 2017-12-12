@@ -2,8 +2,8 @@ json.items do
   json.array! @items do |item|
     json.extract! item, :id, :price, :discount, :description, :image_url, :category, :is_private, :latitude, :longitude, :location, :item_created_at
     json.extract! item, :num_likes, :num_comments
-    json.liked_by_current_user item.liked_by(current_user)
-    
+    json.liked_by_current_user !!(current_user && current_user.liked?(item))
+
     json.user do
           json.extract! item.user, :name, :avatar_url
     end
