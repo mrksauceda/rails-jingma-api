@@ -4,7 +4,7 @@ json.items do
     json.extract! item, :num_likes, :num_comments
     # json.liked_by_current_user !!(current_user && current_user.liked?(item))
     json.liked_by_current_user (item.liked_by current_user)
-    json.current_user current_user.email
+    
     json.user do
           json.extract! item.user, :name, :avatar_url
     end
