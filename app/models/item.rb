@@ -15,7 +15,7 @@ class Item < ApplicationRecord
 
 
   def item_created_at
-    created_at.strftime("%A, %b %w, %Y")
+    created_at.strftime("%A, %b %d, %Y")
   end
 
 
