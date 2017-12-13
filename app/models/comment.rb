@@ -8,6 +8,6 @@ class Comment < ApplicationRecord
   end
 
   def item_created_at
-    created_at.strftime("%A, %b %w, %Y")
+    item.created_at.strftime("%A, %b %w, %Y")
   end
 end
